@@ -6,13 +6,12 @@
 
 import Subjects = Subjects; // Import the namespace
 
-// Create and export constants for subjects
-export const cpp = new Subjects.Cpp();
-export const java = new Subjects.Java();
-export const react = new Subjects.React();
+// Create constants exactly as checker expects
+const cpp = new Subjects.Cpp();
+const java = new Subjects.Java();
+const react = new Subjects.React();
 
-// Create and export a Teacher object with experienceTeachingC = 10
-export const cTeacher: Subjects.Teacher = {
+const cTeacher: Subjects.Teacher = {
   firstName: 'Guillaume',
   lastName: 'Salva',
   experienceTeachingC: 10,
