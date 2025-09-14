@@ -1,10 +1,9 @@
-// Import the Teacher interface or type from its module, or define it here if not available
-import { Teacher } from './Teacher';
+namespace Subjects {
+  export class Subject {
+    teacher: Teacher;
 
-export class Subject {
-  teacher: Teacher;
-
-  setTeacher(teacher: Teacher) {
-    this.teacher = teacher;
+    setTeacher(teacher: Teacher) {
+      this.teacher = teacher;
+    }
   }
 }
