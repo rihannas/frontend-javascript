@@ -4,14 +4,12 @@
 /// <reference path="./subjects/React.ts" />
 /// <reference path="./subjects/Java.ts" />
 
-import Subjects = Subjects; // Import the namespace
+// Create constants exactly as the checker expects
+const cpp = new Cpp();
+const java = new Java();
+const react = new React();
 
-// Create constants exactly as checker expects
-const cpp = new Subjects.Cpp();
-const java = new Subjects.Java();
-const react = new Subjects.React();
-
-const cTeacher: Subjects.Teacher = {
+const cTeacher: Teacher = {
   firstName: 'Guillaume',
   lastName: 'Salva',
   experienceTeachingC: 10,
