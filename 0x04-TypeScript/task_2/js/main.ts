@@ -53,11 +53,6 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-// Example usage
-console.log(createEmployee(200)); // Teacher
-console.log(createEmployee(1000)); // Director
-console.log(createEmployee('$500')); // Director
-
 // String literal type
 type Subjects = 'Math' | 'History';
 
@@ -70,25 +65,20 @@ function teachClass(todayClass: Subjects): string {
   }
 }
 
-// Example usage
-console.log(teachClass('Math')); // Teaching Math
-console.log(teachClass('History')); // Teaching History
-
-// and createEmployee function returns either a Director or Teacher instance
-
-function isDirector(employee: Director | Teacher): employee is Director {
-  // Type predicate: check if employee has workDirectorTasks method
+// Type predicate
+export function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
-function executeWork(employee: Director | Teacher): void {
+// executeWork returning strings
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
-    console.log(employee.workDirectorTasks());
+    return employee.workDirectorTasks();
   } else {
-    console.log(employee.workTeacherTasks());
+    return employee.workTeacherTasks();
   }
 }
 
 // Example usage
-executeWork(createEmployee(200)); // Teacher -> "Getting to work"
-executeWork(createEmployee(1000)); // Director -> "Getting to director tasks"
+console.log(executeWork(createEmployee(200))); // Getting to work
+console.log(executeWork(createEmployee(1000))); // Getting to director tasks
